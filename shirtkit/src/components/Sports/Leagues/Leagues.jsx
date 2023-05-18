@@ -13,8 +13,8 @@ export default function Leagues({ leagues }) {
       id="Leagues"
       style={{ display: "flex", flexDirection: "row", gap: "10px" }}
     >
-      {Object.values(leagues).map((league) => (
-        <div id={league.id} key={league.id}>
+      {Object.values(leagues).map((league,index) => (
+        <div id={league.id} key={`${league.id}_${index}`}>
           <button
             onClick={() => {
               handleClick(league.d);

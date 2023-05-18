@@ -28,12 +28,41 @@ export default function Basketball({ team, home }) {
      ? `https://images.dsrvc.com/crest/small/${cr.id}.png`
      : "https://images.dsrvc.com/crest/small/0.png";
 
-     const ShirtComponent = shirtComponents[parseInt(co.id)] || DefaultTshirt;
+     const ShirtComponent = shirtComponents[parseInt(co.id)] || DefaultShirt;
 
   
-  return (
-    <div id="basketball" style={{ display: "flex", marginBottom: "10px" }}>
-      
-    </div>
-  );
+     return (
+      <div id="basketball-Shirt" style={{ display: "flex", marginBottom: "10px" }}>
+        {ShirtComponent === DefaultShirt ? (
+          <div
+            key={`default_${id}`}
+            style={{
+              display: "inline-block",
+              position: "relative",
+              textAlign: "center",
+              fontSize: "5px",
+            }}
+          >
+            <ShirtComponent cr={crest} home={home} />
+          </div>
+        ) : (
+          <div
+            key={id}
+            style={{
+              display: "inline-block",
+              position: "relative",
+              textAlign: "center",
+              fontSize: "5px",
+            }}
+          >
+            <ShirtComponent color={co.si} so={co.so} />
+          </div>
+        )}
+      </div>
+    );
+    
+
+
+
+
 }
