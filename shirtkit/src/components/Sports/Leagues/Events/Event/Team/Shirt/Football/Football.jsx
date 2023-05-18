@@ -49,7 +49,8 @@ const shirtComponents = [
 ];
 
 export default function Football({ team, home }) {
-  const [unique, setUnique] = useState({});
+  const [unique, setUnique] = useState("");
+
   const namehome = []; //we want to know from the database if it is home
 
   const nameaway = []; //we want to know from the database if it is away
@@ -69,6 +70,7 @@ let pos;
       ? `https://images.dsrvc.com/crest/small/${cr.id}.png`
       : "https://images.dsrvc.com/crest/small/0.png";
 
+
   // fetching from our own server api the unique teams from mongodatabase
   useEffect(() => {
     const Fetchdata = async () => {
@@ -85,6 +87,9 @@ let pos;
 
   
 //checking for unique home and away because name is the same and i cant find index if it is duplicate in the array so i split the array on 2 arrays named home and away
+if(unique){
+
+
   for (let i = 0; i < unique.length; i++) {
     if (unique[i].home == 1) {
       namehome[i] = unique[i].name;
@@ -92,7 +97,7 @@ let pos;
       nameaway[i] = unique[i].name;
     }
   }
-
+ 
 
 //checking if aaa is 1 home then find the position in homename array otherwise !=
   if (aaa == 1 && namehome.includes(name)) {
@@ -103,6 +108,11 @@ let pos;
     }
   }
 
+
+
+}
+  
+
   //if nothing happens means it is not unique team and it has a id to be dynamically generated so we checking with id shirt needs to be rendered and saving it to a shirtcomponent 
   const ShirtComponent = shirtComponents[parseInt(co.id)] || DefaultTshirt;
 
@@ -112,22 +122,7 @@ let pos;
         <div key={`unique_${id}`}>
           <Unique data={unique[pos].svg} />
         </div>
-      )  //checking if we have position means we have unique team so show me the unique component 
-      : ShirtComponent === DefaultTshirt ?  // otherwise check if else shirtcomponent falls on default 
-      (
-        <div
-          key={`default_${id}`}
-          style={{
-            display: "inline-block",
-            position: "relative",
-            textAlign: "center",
-            fontSize: "5px",
-          }}
-        >
-          <ShirtComponent cr={crest} home={home} /> 
-          
-        </div>
-      ) : (
+      ) : ShirtComponent !== DefaultTshirt ? (
         <div
           key={id}
           style={{
@@ -139,7 +134,19 @@ let pos;
         >
           <ShirtComponent color={co.si} so={co.so} />
         </div>
+      ) : (
+        <div
+          key={`default_${id}`}
+          style={{
+            display: "inline-block",
+            position: "relative",
+            textAlign: "center",
+            fontSize: "5px",
+          }}
+        >
+          <ShirtComponent cr={crest} home={home} /> 
+        </div>
       )}
     </div>
   );
-}
+        }

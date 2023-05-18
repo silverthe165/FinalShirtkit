@@ -6,7 +6,7 @@ import {sportsArray} from '../../../../../../sports'
 export default function Team({ team,sn }) {
 
 
-  const Sports = sportsArray[sn];
+  const Sports = sportsArray[sn.toString().replace(/\s+/g, '')];
 
 
   return (

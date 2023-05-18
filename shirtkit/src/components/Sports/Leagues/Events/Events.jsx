@@ -10,7 +10,7 @@ export default function Events({ events }) {
   return (
     <div
       id="Events"
-      style={{ display: "flex", flexDirection: "row", gap: "10px" }}
+      style={{ display: "flex", flexDirection: "column", gap: "10px" }}
     >
       {Object.values(events).map((event) => {
         return (

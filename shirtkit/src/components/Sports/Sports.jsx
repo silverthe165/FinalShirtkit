@@ -3,7 +3,7 @@ import Leagues from "./Leagues/Leagues";
 
 export default function Sports({ data }) {
   const [league, setLeague] = useState("");
-
+  
   const handleClick = (selectedLeague) => {
     if (league === selectedLeague) {
       setLeague("");

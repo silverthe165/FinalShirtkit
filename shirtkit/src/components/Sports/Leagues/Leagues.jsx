@@ -8,27 +8,29 @@ export default function Leagues({ leagues }) {
   //   setEvents(selectedEvents);
   // };
 
+  // Sort the leagues based on league name
+  const sortedLeagues = Object.values(leagues).sort((a, b) =>
+    a.m.n.localeCompare(b.m.n)
+  );
+
   return (
     <div
       id="Leagues"
       style={{ display: "flex", flexDirection: "column", gap: "10px" }}
     >
-      {Object.values(leagues).map((league,index) => (
-    
+      {sortedLeagues.map((league, index) => (
         <div id={league.m.n} key={`${league.id}_${index}`}>
-          <button
-            // onClick={() => {
-            //   handleClick(league.d);
-            // }}
+          <button 
+          // onClick={() => handleClick(league.d)}
           >
-              
-           <span style={{color:"black",fontSize:'30px',fontWeight:"bold"}}> {league.m.n}</span>
-            
+            <span style={{ color: "black", fontSize: "30px", fontWeight: "bold" }}>
+              {league.m.n}
+            </span>
           </button>
           <Events events={league.d} />
         </div>
       ))}
-    {/* <Events events={events} /> */}
+      {/* <Events events={events} /> */}
     </div>
   );
 }
