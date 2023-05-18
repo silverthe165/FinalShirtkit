@@ -3,7 +3,7 @@ import axios from "axios";
 import Sports from "./components/Sports/Sports";
 
 function App() {
-  const [sports, setSports] = useState("");
+  const [sports, setSports] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
