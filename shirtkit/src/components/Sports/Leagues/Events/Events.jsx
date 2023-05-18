@@ -1,11 +1,11 @@
 import { useState } from "react";
 import Event from "./Event/Event";
 export default function Events({ events }) {
-  const [event, setEvent] = useState("");
+  // const [event, setEvent] = useState("");
 
-  const handleClick = (event) => {
-    setEvent(event);
-  };
+  // const handleClick = (event) => {
+  //   setEvent(event);
+  // };
 
   return (
     <div
@@ -15,12 +15,13 @@ export default function Events({ events }) {
       {Object.values(events).map((event) => {
         return (
           <div id={event.id} key={event.id}>
-            <button onClick={() => handleClick(event)}>{event.id}</button>
+            {/* <button onClick={() => handleClick(event)}>{event.id}</button> */}
+            <Event event={event}></Event>
           </div>
         );
       })}
 
-      <Event event={event}></Event>
+
     </div>
   );
 }

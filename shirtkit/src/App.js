@@ -12,12 +12,25 @@ function App() {
           "https://gw7.sysnex.app/sportsbetting/calendar"
         );
         setSports(response.data);
+        localStorage.setItem("cachedSportsData", JSON.stringify(response.data));
       } catch (error) {
         console.log(error);
       }
     };
 
-    fetchData();
+    const cachedData = localStorage.getItem("cachedSportsData");
+
+    if (cachedData) {
+      setSports(JSON.parse(cachedData));
+    } else {
+      fetchData();
+    }
+
+    const interval = setInterval(fetchData, 60 * 10 * 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
 
   return (

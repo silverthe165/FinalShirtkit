@@ -83,8 +83,8 @@ let pos;
     Fetchdata();
   }, []);
 
-
-
+  
+//checking for unique home and away because name is the same and i cant find index if it is duplicate in the array so i split the array on 2 arrays named home and away
   for (let i = 0; i < unique.length; i++) {
     if (unique[i].home == 1) {
       namehome[i] = unique[i].name;
@@ -93,10 +93,8 @@ let pos;
     }
   }
 
-  if (!unique) {
-    return <div>loading</div>;
-  }
 
+//checking if aaa is 1 home then find the position in homename array otherwise !=
   if (aaa == 1 && namehome.includes(name)) {
      pos = namehome.indexOf(name);
   } else {
@@ -105,15 +103,18 @@ let pos;
     }
   }
 
+  //if nothing happens means it is not unique team and it has a id to be dynamically generated so we checking with id shirt needs to be rendered and saving it to a shirtcomponent 
   const ShirtComponent = shirtComponents[parseInt(co.id)] || DefaultTshirt;
 
   return (
-    <div id="football-Shirt" style={{ display: "flex", marginBottom: "10px" }}>
+    <div id="football-Shirt" style={{ display: "flex", marginBottom: "10px"}}>
       {pos ? (
         <div key={`unique_${id}`}>
           <Unique data={unique[pos].svg} />
         </div>
-      ) : ShirtComponent === DefaultTshirt ? (
+      )  //checking if we have position means we have unique team so show me the unique component 
+      : ShirtComponent === DefaultTshirt ?  // otherwise check if else shirtcomponent falls on default 
+      (
         <div
           key={`default_${id}`}
           style={{
@@ -123,7 +124,8 @@ let pos;
             fontSize: "5px",
           }}
         >
-          <ShirtComponent cr={crest} home={home} />
+          <ShirtComponent cr={crest} home={home} /> 
+          
         </div>
       ) : (
         <div
