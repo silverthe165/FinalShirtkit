@@ -21,26 +21,22 @@ import Box from './components/Sports/Leagues/Events/Event/Team/Shirt/Box/Box'
 
 export const sportsArray = {
     
-      Football: Football,
+      1: Football,
     
    
-      // 4:
-      Basketball:
-      Basketball,
+      4:Basketball,
+ 
     
    
-      // 7:
-      Handball:
-      Handball,
+      7: Handball,
     
    
       // 10:
       // Formula1,
     
    
-      // 13:
-      Box:
-      Box,
+ 
+     13:Box,
     
    
       // 16:
@@ -83,51 +79,37 @@ export const sportsArray = {
       // Ski,
     
    
-      // 46:
-      IceHockey:
-      IceHockey,
+      46:IceHockey,
     
    
-      // 49:
-      Volleyball:
-      Volleyball,
+      49: Volleyball,
     
    
       // 52:
       // Amer. Football,
     
    
-      // 55:
-      RugbyLeague:
-      RugbyLeague,
+      55: RugbyLeague,
     
    
-      // 58:
-      RugbyUnion:
-      RugbyUnion,
+      58: RugbyUnion,
+   
     
    
       // 61:
       // BasketballSpecial,
     
    
-      // 64:
-      Baseball: Baseball,
+      64:Baseball,
     
    
-      // 67:
-      Cricket:
-      Cricket,
+      67:Cricket,
     
    
-      // 70:
-      Futsal:
-      Futsal,
+      70:Futsal,
     
    
-      // 73:
-      Darts:
-      Darts,
+      73:Darts,
     
    
       // 76:
@@ -146,9 +128,7 @@ export const sportsArray = {
       // BeachFootball,
     
    
-      // 85:
-      WaterPolo:
-      WaterPolo,
+      85:WaterPolo,
     
    
       // 88:
@@ -163,9 +143,7 @@ export const sportsArray = {
       // TableTennis,
     
    
-      // 97:
-      AussieRules:
-      AussieRules,
+      97:AussieRules,
     
    
       // 100:
@@ -180,9 +158,7 @@ export const sportsArray = {
       // Bandy,
     
    
-      // 109:
-      Bowls:
-      Bowls,
+      109:Bowls,
     
    
       // 112:

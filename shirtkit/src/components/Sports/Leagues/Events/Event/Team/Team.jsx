@@ -3,11 +3,11 @@ import {sportsArray} from '../../../../../../sports'
 
 
 
-export default function Team({ team,sn }) {
+export default function Team({ team,s }) {
 
 
-  const Sports = sportsArray[sn.toString().replace(/\s+/g, '')];
-
+// const Sports = sportsArray[sn.toString().replace(/\s+/g, '')];
+const Sports=sportsArray[s] // sport id 
 
   return (
     <div id="team">

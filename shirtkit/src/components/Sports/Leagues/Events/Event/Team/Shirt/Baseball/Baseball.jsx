@@ -2,7 +2,7 @@ import React from 'react'
 import { Shirt1 } from './shirts/Shirt1';
 import Shirt2 from './shirts/Shirt2'
 import Shirt3 from './shirts/Shirt3';
-import DefaultShirt from './shirts/DefaultShirt'
+import {DefaultShirt} from './shirts/DefaultShirt'
 
 
 const shirtComponents = [
