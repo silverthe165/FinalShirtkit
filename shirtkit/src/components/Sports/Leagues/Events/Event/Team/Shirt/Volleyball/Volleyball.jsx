@@ -4,7 +4,7 @@ import {DefaultShirt} from "./shirts/DefaultShirt"
 
 
 const shirtComponents = [
-  DefaultShirt,Shirt1,Shirt2];
+  ,Shirt1,Shirt2,DefaultShirt,];
 
 export default function Volleyball({team,home}) {
 

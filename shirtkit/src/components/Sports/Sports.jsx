@@ -17,13 +17,13 @@ export default function Sports({ data }) {
       id="Sports"
       style={{
         display: "flex",
-        flexDirection: "column",
+        flexDirection: "row",
         gap: "10px",
         padding: "10px",
       }}
     >
       {Object.values(data).map((sports) => (
-        <div key={sports.m.n}>
+        <div key={sports.m.n} id={sports.m.n}>
           <button onClick={() => handleClick(sports.d)}>{sports.m.n}</button>
           {league === sports.d && <Leagues leagues={sports.d} />}
         </div>

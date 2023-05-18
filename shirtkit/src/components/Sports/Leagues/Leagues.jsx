@@ -23,7 +23,7 @@ export default function Leagues({ leagues }) {
           <button 
           // onClick={() => handleClick(league.d)}
           >
-            <span style={{ color: "black", fontSize: "30px", fontWeight: "bold" }}>
+            <span style={{ color: "Green", fontSize: "20px", fontWeight: "bold" }}>
               {league.m.n}
             </span>
           </button>

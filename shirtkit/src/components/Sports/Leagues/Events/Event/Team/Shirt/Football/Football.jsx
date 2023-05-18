@@ -79,13 +79,16 @@ let pos;
           `http://localhost:5000/api/uniqueteams`
         );
         setUnique(response.data);
-      } catch (error) {}
+  
+      } catch (error) {
+        console.log(error)
+      }
     };
 
     Fetchdata();
   }, []);
 
-  
+ 
 //checking for unique home and away because name is the same and i cant find index if it is duplicate in the array so i split the array on 2 arrays named home and away
 if(unique){
 

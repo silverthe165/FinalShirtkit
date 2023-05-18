@@ -11,7 +11,7 @@ const shirtComponents = [
   DefaultShirt,Shirt1,];
 
 export default  function IceHockey({team,home}) {
-console.log(team)
+
   const { id, co, cr, n } = team; //getting team that is passed id,colors,crest id,and the name team as n
 
   // checking if crest is 404 dosent have anything at least we want an empty crest and not error without crest
