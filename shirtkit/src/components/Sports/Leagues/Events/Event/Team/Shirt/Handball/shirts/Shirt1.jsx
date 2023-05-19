@@ -1,4 +1,5 @@
 import React from 'react'
+import generateString from '../../../../../../../../../random';
 
 export default function Shirt1({color}) {
     const [color1, color2, color3, color4, color5, color6, color7] = color.split(',')
@@ -19,8 +20,8 @@ export default function Shirt1({color}) {
                     </mask>
                     </defs><g id="SVG-Team-Kits-Separated" fill="none" fillRule="evenodd">
                         <g id="K3-1">
-                            <path d="M24 3.714C27.874 3.64 30 0 30 0l6.554.997L48 13.685l-6.6 7.588L36 17v19H12V17l-5.387 4.273L0 13.68 11.377 1.238 18 0s2.126 3.79 6 3.714z" id="color1" fill={color1} />
-                            <path id="color2" fill={color2} d="M7 52l5-16h24l5 16H26.4L24 45.81 21.6 52z" />
+                            <path d="M24 3.714C27.874 3.64 30 0 30 0l6.554.997L48 13.685l-6.6 7.588L36 17v19H12V17l-5.387 4.273L0 13.68 11.377 1.238 18 0s2.126 3.79 6 3.714z" id={generateString(20)} fill={color1} />
+                            <path id={generateString(20)} fill={color2} d="M7 52l5-16h24l5 16H26.4L24 45.81 21.6 52z" />
                             <g id="hires-detail"><g id="Outline1"><g id="Shape"><use strokeOpacity=".07" stroke="#FFF" mask="url(#K3-1-mask-2)" strokeWidth={4} xlinkHref="#K3-1-path-1" />
                             <use stroke="#272727" mask="url(#K3-1-mask-3)" strokeWidth={2} xlinkHref="#K3-1-path-1" /></g><g id="Shape">
                                 <use strokeOpacity=".07" stroke="#FFF" mask="url(#K3-1-mask-5)" strokeWidth={4} xlinkHref="#K3-1-path-4" />

@@ -1,19 +1,16 @@
 
-import react from 'react'
-// import svgtojsx from 'svg-to-jsx'
+
+
 export  function Unique({data}) {
 
-
-// console.log(svgtojsx(data).then(function(jsx){
-//   return jsx
-// }))
+console.log(data)
 
   return (
-    <>
-  <div dangerouslySetInnerHTML={{ __html:data}} />
 
 
-    </>
+  <div style={{display:"inline-block",position:"relative",textAlign:"center",fontSize:"5px"}} dangerouslySetInnerHTML={{ __html:data}} />
+
+
   );
   
 }

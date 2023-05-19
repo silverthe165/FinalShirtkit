@@ -6,7 +6,7 @@ import Shirt3 from './shirts/Shirt3';
 import Shirt4 from './shirts/Shirt4';
 import Shirt5 from './shirts/Shirt5';
 import Shirt6 from './shirts/Shirt6';
-import  DefaultShirt  from './shirts/DefaultShirt';
+import  {DefaultShirt}  from './shirts/DefaultShirt';
 
 
 

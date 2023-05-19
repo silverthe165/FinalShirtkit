@@ -29,7 +29,7 @@ function App() {
 
 
   return (
-    <div className="Sports" style={{ display: "flex", backgroundColor: "#FFFDD0" }}>
+    <div className="Sports" style={{ display: "flex", }}>
       <Sports data={sports} />
     </div>
   );

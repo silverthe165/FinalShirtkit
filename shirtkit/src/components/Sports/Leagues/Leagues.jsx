@@ -18,6 +18,7 @@ export default function Leagues({ leagues }) {
       id="Leagues"
       style={{ display: "flex", flexDirection: "column", gap: "10px" }}
     >
+      
       {sortedLeagues.map((league, index) => (
         <div id={league.m.n} key={`${league.id}_${index}`}>
           <button 
@@ -31,6 +32,7 @@ export default function Leagues({ leagues }) {
         </div>
       ))}
       {/* <Events events={events} /> */}
+      
     </div>
   );
 }

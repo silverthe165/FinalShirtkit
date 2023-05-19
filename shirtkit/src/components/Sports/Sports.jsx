@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Leagues from "./Leagues/Leagues";
 
 export default function Sports({ data }) {
@@ -11,6 +11,7 @@ export default function Sports({ data }) {
       setLeague(selectedLeague);
     }
   };
+
 
   return (
     <div

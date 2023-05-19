@@ -6,11 +6,12 @@ import Shirt4 from './shirts/Shirt4';
 
 
 import {DefaultShirt} from "./shirts/DefaultShirt"
+import Shirt5 from './shirts/Shirt5';
 
 
 
 const shirtComponents = [
-  DefaultShirt,Shirt1,Shirt2,Shirt3,Shirt4];
+  DefaultShirt,Shirt1,Shirt2,Shirt3,Shirt4,Shirt5];
 
 export default  function RugbyLeague({team,home}) {
 

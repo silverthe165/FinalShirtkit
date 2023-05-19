@@ -24,7 +24,7 @@ import { DefaultTshirt } from "./shirts/DefaultTshirt";
 import { useEffect, useState } from "react";
 
 const shirtComponents = [
-,
+  ,
   Shirt1,
   Shirt2,
   Shirt3,
@@ -45,11 +45,11 @@ const shirtComponents = [
   Shirt18,
   Shirt19,
   Shirt20,
-
+  Unique
 ];
 
 export default function Football({ team, home }) {
-  const [unique, setUnique] = useState(null);
+  const [unique, setUnique] = useState("");
 
   const { id, co, cr, n } = team; //getting team that is passed id,colors,crest id,and the name team as n
 
@@ -59,42 +59,49 @@ export default function Football({ team, home }) {
   let ttt = tt.replace(/-/g, "_and_");
   let name = ttt.replace(/_U.*/, "");
 
-
   // checking if crest is 404 dosent have anything at least we want an empty crest and not error without crest
   const crest =
     cr.id !== ""
       ? `https://images.dsrvc.com/crest/small/${cr.id}.png`
       : "https://images.dsrvc.com/crest/small/0.png";
 
-
   // fetching from our own server api the unique teams from mongodatabase
   useEffect(() => {
-    const Fetchdata = async () => {
+    const fetchData = async () => {
       try {
         const response = await axios.get(
           `http://localhost:5000/api/uniqueteams/${name}/${home}`
         );
-        setUnique(response.data);
-        console.log(unique)
+        setUnique(response.data[0].svg);
       } catch (error) {
-     
+        if (error.response && error.response.status === 404) {
+          // Handle the 404 error silently without logging it
+        } else {
+          // Handle other types of errors or log them if needed
+          console.error(error);
+        }
       }
     };
+  
+    fetchData();
+  
 
-    Fetchdata();
-  }, []);
+    return () => {
 
- 
+    };
+  }, [name,home]);
+  
 
- 
-  //if nothing happens means it is not unique team and it has a id to be dynamically generated so we checking with id shirt needs to be rendered and saving it to a shirtcomponent 
+
+
+  //if nothing happens means it is not unique team and it has a id to be dynamically generated so we checking with id shirt needs to be rendered and saving it to a shirtcomponent
   const ShirtComponent = shirtComponents[parseInt(co.id)] || DefaultTshirt;
 
   return (
-    <div id="football-Shirt" style={{ display: "flex", marginBottom: "10px"}}>
-      {unique!==null? (
+    <div id="football-Shirt" style={{ display: "flex", marginBottom: "10px" }}>
+      {unique ? (
         <div key={`unique_${id}`}>
-          <Unique data={unique[0].svg} />
+          <Unique data={unique} />
         </div>
       ) : ShirtComponent !== DefaultTshirt ? (
         <div
@@ -118,9 +125,9 @@ export default function Football({ team, home }) {
             fontSize: "5px",
           }}
         >
-          <ShirtComponent cr={crest} home={home} /> 
+          <ShirtComponent cr={crest} home={home} />
         </div>
       )}
     </div>
   );
-        }
+}
