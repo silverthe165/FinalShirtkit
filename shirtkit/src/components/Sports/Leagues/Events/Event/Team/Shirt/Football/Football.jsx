@@ -24,7 +24,7 @@ import { DefaultTshirt } from "./shirts/DefaultTshirt";
 import { useEffect, useState } from "react";
 
 const shirtComponents = [
-  Unique,
+,
   Shirt1,
   Shirt2,
   Shirt3,
@@ -45,16 +45,12 @@ const shirtComponents = [
   Shirt18,
   Shirt19,
   Shirt20,
-  DefaultTshirt,
+
 ];
 
 export default function Football({ team, home }) {
-  const [unique, setUnique] = useState("");
+  const [unique, setUnique] = useState(null);
 
-  const namehome = []; //we want to know from the database if it is home
-
-  const nameaway = []; //we want to know from the database if it is away
-let pos;
   const { id, co, cr, n } = team; //getting team that is passed id,colors,crest id,and the name team as n
 
   //regex to make team names to be as clear as possible
@@ -62,7 +58,7 @@ let pos;
   let tt = t.substring(0, t.length - 1);
   let ttt = tt.replace(/-/g, "_and_");
   let name = ttt.replace(/_U.*/, "");
-  let aaa = home;
+
 
   // checking if crest is 404 dosent have anything at least we want an empty crest and not error without crest
   const crest =
@@ -76,12 +72,12 @@ let pos;
     const Fetchdata = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/uniqueteams`
+          `http://localhost:5000/api/uniqueteams/${name}/${home}`
         );
         setUnique(response.data);
-  
+        console.log(unique)
       } catch (error) {
-        console.log(error)
+     
       }
     };
 
@@ -89,41 +85,16 @@ let pos;
   }, []);
 
  
-//checking for unique home and away because name is the same and i cant find index if it is duplicate in the array so i split the array on 2 arrays named home and away
-if(unique){
 
-
-  for (let i = 0; i < unique.length; i++) {
-    if (unique[i].home == 1) {
-      namehome[i] = unique[i].name;
-    } else {
-      nameaway[i] = unique[i].name;
-    }
-  }
  
-
-//checking if aaa is 1 home then find the position in homename array otherwise !=
-  if (aaa == 1 && namehome.includes(name)) {
-     pos = namehome.indexOf(name);
-  } else {
-    if (nameaway.includes(name)) {
-     pos = nameaway.indexOf(name);
-    }
-  }
-
-
-
-}
-  
-
   //if nothing happens means it is not unique team and it has a id to be dynamically generated so we checking with id shirt needs to be rendered and saving it to a shirtcomponent 
   const ShirtComponent = shirtComponents[parseInt(co.id)] || DefaultTshirt;
 
   return (
     <div id="football-Shirt" style={{ display: "flex", marginBottom: "10px"}}>
-      {pos ? (
+      {unique!==null? (
         <div key={`unique_${id}`}>
-          <Unique data={unique[pos].svg} />
+          <Unique data={unique[0].svg} />
         </div>
       ) : ShirtComponent !== DefaultTshirt ? (
         <div
