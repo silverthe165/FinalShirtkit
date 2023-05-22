@@ -1,4 +1,4 @@
-import { Unique } from "./shirts/Unique";
+import  {Unique}  from "./shirts/Unique";
 import { Shirt1 } from "./shirts/Shirt1";
 import { Shirt2 } from "./shirts/Shirt2";
 import { Shirt3 } from "./shirts/Shirt3";
@@ -21,7 +21,7 @@ import { Shirt19 } from "./shirts/Shirt19";
 import { Shirt20 } from "./shirts/Shirt20";
 import axios from "axios";
 import { DefaultTshirt } from "./shirts/DefaultTshirt";
-import { useEffect, useState } from "react";
+import React,{ useEffect, useState } from "react";
 
 const shirtComponents = [
   ,
@@ -45,12 +45,15 @@ const shirtComponents = [
   Shirt18,
   Shirt19,
   Shirt20,
-  Unique
+
 ];
 
 export default function Football({ team, home }) {
-  const [unique, setUnique] = useState("");
 
+
+  const [unique, setUnique] = useState("");
+ 
+  
   const { id, co, cr, n } = team; //getting team that is passed id,colors,crest id,and the name team as n
 
   //regex to make team names to be as clear as possible
@@ -73,6 +76,8 @@ export default function Football({ team, home }) {
           `http://localhost:5000/api/uniqueteams/${name}/${home}`
         );
         setUnique(response.data[0].svg);
+
+    
       } catch (error) {
         if (error.response && error.response.status === 404) {
           // Handle the 404 error silently without logging it
@@ -86,48 +91,38 @@ export default function Football({ team, home }) {
     fetchData();
   
 
-    return () => {
-
-    };
-  }, [name,home]);
+  },[name,home]);
   
 
 
-
   //if nothing happens means it is not unique team and it has a id to be dynamically generated so we checking with id shirt needs to be rendered and saving it to a shirtcomponent
-  const ShirtComponent = shirtComponents[parseInt(co.id)] || DefaultTshirt;
+ const ShirtComponent = shirtComponents[co.id] || DefaultTshirt;
 
-  return (
-    <div id="football-Shirt" style={{ display: "flex", marginBottom: "10px" }}>
-      {unique ? (
-        <div key={`unique_${id}`}>
-          <Unique data={unique} />
-        </div>
-      ) : ShirtComponent !== DefaultTshirt ? (
-        <div
-          key={id}
-          style={{
-            display: "inline-block",
-            position: "relative",
-            textAlign: "center",
-            fontSize: "5px",
-          }}
-        >
-          <ShirtComponent color={co.si} so={co.so} />
-        </div>
+
+
+
+  return  (<div id="football-Shirt" style={{ display: "flex", marginBottom: "10px" }}>
+  {unique ? (
+    <div key={`unique_${id}`}>
+      <Unique data={unique} />
+    </div>
+  ) : (
+    <div
+      key={id}
+      style={{
+        display: "inline-block",
+        position: "relative",
+        textAlign: "center",
+        fontSize: "5px",
+      }}
+    >
+      {ShirtComponent !== DefaultTshirt ? (
+        <ShirtComponent color={co.si} so={co.so} />
       ) : (
-        <div
-          key={`default_${id}`}
-          style={{
-            display: "inline-block",
-            position: "relative",
-            textAlign: "center",
-            fontSize: "5px",
-          }}
-        >
-          <ShirtComponent cr={crest} home={home} />
-        </div>
+        <ShirtComponent cr={crest} home={home} />
       )}
     </div>
-  );
+  )}
+</div>
+);
 }

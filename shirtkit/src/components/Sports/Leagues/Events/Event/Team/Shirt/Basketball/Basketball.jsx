@@ -1,3 +1,4 @@
+import React from 'react'
 
 import Shirt1 from "./shirts/Shirt1";
 import Shirt2 from "./shirts/Shirt2";
@@ -19,6 +20,7 @@ const shirtComponents = [
 ];
 
 export default function Basketball({ team, home }) {
+
 
   const { id, co, cr, n } = team; //getting team that is passed id,colors,crest id,and the name team as n
 

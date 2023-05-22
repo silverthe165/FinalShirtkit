@@ -1,3 +1,4 @@
+import React from 'react'
 
 import generateString from "../../../../../../../../../random"
 

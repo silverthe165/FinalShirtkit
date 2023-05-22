@@ -1,9 +1,9 @@
-
+import React from 'react'
 
 
 export  function Unique({data}) {
 
-console.log(data)
+
 
   return (
 

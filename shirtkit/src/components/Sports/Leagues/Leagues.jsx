@@ -1,7 +1,8 @@
-import { useState } from "react";
+import React,{ useState } from "react";
 import Events from "./Events/Events";
 
 export default function Leagues({ leagues }) {
+
   // const [events, setEvents] = useState("");
 
   // const handleClick = (selectedEvents) => {

@@ -1,6 +1,7 @@
-import { useState } from "react";
+import React,{ useState } from "react";
 import Event from "./Event/Event";
 export default function Events({ events }) {
+
   // const [event, setEvent] = useState("");
 
   // const handleClick = (event) => {

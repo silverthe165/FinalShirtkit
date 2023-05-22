@@ -1,3 +1,5 @@
+
+import React from 'react'
 import generateString from "../../../../../../../../../random"
 
 export function Shirt11({color ,cr}) {

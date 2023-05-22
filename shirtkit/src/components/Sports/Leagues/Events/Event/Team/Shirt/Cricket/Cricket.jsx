@@ -1,4 +1,5 @@
 import React from 'react'
+import Shirt0 from './shirts/Shirt0'
 import Shirt1 from './shirts/Shirt1'
 import Shirt2 from './shirts/Shirt2'
 import Shirt3 from './shirts/Shirt3'
@@ -9,7 +10,7 @@ import {DefaultShirt} from "./shirts/DefaultShirt"
 
 
 const shirtComponents = [
-  DefaultShirt,Shirt1,Shirt2,Shirt3];
+ Shirt0,Shirt1,Shirt2,Shirt3, DefaultShirt];
 
 export default function Cricket({team,home}) {
 

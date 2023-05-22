@@ -1,3 +1,5 @@
+import React from 'react'
+
 import generateString from "../../../../../../../../../random";
 
 export default function Shirt1({color}) {

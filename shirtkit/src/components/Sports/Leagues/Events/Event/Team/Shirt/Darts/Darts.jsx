@@ -1,4 +1,7 @@
 
+
+import React from 'react';
+import Shirt0 from './shirts/Shirt0';
 import Shirt1 from './shirts/Shirt1';
 
 
@@ -7,7 +10,7 @@ import {DefaultShirt} from "./shirts/DefaultShirt"
 
 
 const shirtComponents = [
-  DefaultShirt,Shirt1];
+  Shirt0,Shirt1,DefaultShirt];
 
 export default function Darts({team,home}) {
 

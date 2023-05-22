@@ -1,4 +1,4 @@
-
+import React from 'react'
 import generateString from "../../../../../../../../../random"
 
 export const Shirt1 = ({color ,cr,so}) => {
