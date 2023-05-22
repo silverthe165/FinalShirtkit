@@ -9,13 +9,10 @@ export default function Events({ events }) {
   // };
 
   return (
-    <div
-      id="Events"
-      style={{ display: "flex", flexDirection: "column", gap: "10px" }}
-    >
+    <>
       {Object.values(events).map((event) => {
         return (
-          <div id={event.id} key={event.id}>
+          <div id={event.id} key={event.id}  style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
             {/* <button onClick={() => handleClick(event)}>{event.id}</button> */}
             <Event event={event}></Event>
           </div>
@@ -23,6 +20,6 @@ export default function Events({ events }) {
       })}
 
 
-    </div>
+    </>
   );
 }
